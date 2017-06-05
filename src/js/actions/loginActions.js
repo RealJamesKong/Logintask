@@ -1,3 +1,11 @@
+export function doLogin(id,pw){
+    return function (dispatch) {
+        dispatch({type: "LOGIN_SUBMITTED", payload: {id: id, pw: pw}})
+    }
+}
+
+/*Without Redux-saga
+
 import axios from "axios";
 
 function tryLogin(id, pw){
@@ -7,12 +15,13 @@ function tryLogin(id, pw){
 export function doLogin(id, pw) {
     return function (dispatch) {
         tryLogin(id, pw).then((response) => {
-            alert('nay')
+            alert('You have logged in as ' + id)
                 dispatch({type: "LOGIN_SUCCESSFUL", payload: id})
             })
             .catch((err) => {
-                alert('yay')
+                alert('nay')
                 dispatch({type: "LOGIN_FAILED", payload: err})
             })
     }
 }
+*/
