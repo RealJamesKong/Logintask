@@ -2,41 +2,14 @@ import React from "react"
 import { connect } from "react-redux"
 
 import { doLogin } from "../actions/loginActions"
-
-//import { usernameBox} from "../components/usernameBox"
+//import usernameBox from "./usernameBox"
 
 @connect((store) => {
     return {
         success: store.success,
         username : store.username,
-    }
+    };
 })
-
-//trying to make dumb component
-/*class loginBox extends React.Component {
-    render() {
-        return (
-            <div>
-                Please enter your Username and Password
-                <form onSubmit={()=>this.props.onClick()}>
-                    <div>
-                        <label>
-                            ID:
-                            <input type="text" value={this.props.id} onChange={this.props.changeID}/>
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Password:
-                            <input type="password" value={this.props.pw} onChange={this.props.changePW}/>
-                        </label>
-                    </div>
-                    <input type="submit"/>
-                </form>
-            </div>
-        )
-    }
-}*/
 
 
 export default class Layout extends React.Component {
@@ -67,9 +40,10 @@ export default class Layout extends React.Component {
         )
     }
 */
+
     render() {
         const { success, username } = this.props;
-        if (success===null) {
+        if (success!==true) {
             return(
             <div>
                 Please enter your Username and Password
